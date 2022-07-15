@@ -1,11 +1,10 @@
 openapi: 3.0.0
 
 info:
-  description: "Es una plataforma de musica para que los usuarios puedan esuchar 
-    sus canciones favoritas de sus artistas preferidos , en una lista de reproduccion 
-    personalizada por ellos mismos."
+  description: "Es una plataforma de imagenes donde cada usuario puede agregar sus fotografias favoritas 
+  y que ademas puede tambien crear albunes segun sus necesidades"
   version: "1.0.0"
-  title: "Spotplay"
+  title: "Unsplash-image"
   contact:
     email: "oriamnut09@gmail.com"
   license:
