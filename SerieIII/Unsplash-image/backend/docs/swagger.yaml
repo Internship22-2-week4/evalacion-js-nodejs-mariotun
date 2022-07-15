@@ -1,0 +1,156 @@
+openapi: 3.0.0
+
+info:
+  description: "Es una plataforma de musica para que los usuarios puedan esuchar 
+    sus canciones favoritas de sus artistas preferidos , en una lista de reproduccion 
+    personalizada por ellos mismos."
+  version: "1.0.0"
+  title: "Spotplay"
+  contact:
+    email: "oriamnut09@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+servers:
+- url: "http://localhost:4000/api/v1"
+
+tags:
+- name: "User"
+  description: "App users"
+- name: "LogIn"
+  description: "Login users"
+- name: "Role"
+  description: "Role of a user"
+- name: "Account_Type"
+  description: "User account type"
+- name: "Song"
+  description: "App songs"
+- name: "Gender"
+  description: "Genre of songs"
+- name: "Artist"
+  description: "song artists"
+- name: Playlist
+  description: "user song list"
+
+paths:
+  /user/singup:
+    post:
+      tags:
+      - "User"
+      summary: "Create a new user to the app"
+      operationId: "createUser"
+      requestBody:
+        description: "Enter the data of the user to create"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "201":
+          description: registro exitoso !!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: bad request
+  /user/{idUser}:
+    put:
+      tags:
+      - "User"
+      summary: "Update a user"
+      operationId: "updateUser"
+      parameters:
+      - name: "idUser"
+        in: "path"
+        required: true
+        type: "integer"
+        format: "int64"
+      requestBody:
+        description: "Enter the id of the user to update"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "200":
+          description: altualizacion exitosa !!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: bad request
+    delete:
+      tags:
+      - "User"
+      summary: "Delete a user"
+      operationId: "deleteUser"
+      parameters:
+      - name: "idUser"
+        in: "path"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: eliminacion exitosa !!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: bad request
+   
+  /auth/singin:
+    post:
+      tags:
+      - "User"
+      summary: "Log In app"
+      operationId: "createUser"
+      requestBody:
+        description: "Enter the data to login"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+        required: true
+      responses:
+        "200":
+          description: login exitoso !!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Login'
+        "400":
+          description: bad request
+
+components:
+  schemas:
+    User:
+      type: "object"
+      properties:
+        username: 
+          type: "string"
+        email: 
+          type: "string"
+          format: "email"
+        password: 
+          type: "string"
+        idRole: 
+          type: "integer"
+          format: "int64"
+        idTypeCount:
+          type: "integer"
+          format: "int64"
+    Login:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+        password:
+          type: "string"
+
