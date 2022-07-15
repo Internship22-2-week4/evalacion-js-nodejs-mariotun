@@ -1,4 +1,4 @@
-class Album {
+export class Album {
     constructor (album) {
       // this._id = null
       this._name = album.name
@@ -6,4 +6,4 @@ class Album {
     }
   }
   
-  export default Album
+  //export default Album

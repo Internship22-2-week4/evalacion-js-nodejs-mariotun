@@ -10,6 +10,7 @@ import { dirname, join } from 'path'
 
 import { userModule } from './user/index.js'
 import { authModule } from './auth/index.js'
+import { photoModule } from './photo/index.js'
 /*import { songModule } from './song/index.js'
 import { artistModule } from './artist/index.js'
 import { playlistModule } from './playlist/index.js'
@@ -38,6 +39,7 @@ class Server {
   setRoutes () {
     this._app.use('/api/v1/user', userModule(express.Router))
     this._app.use('/api/v1/auth', authModule(express.Router))
+    this._app.use('/api/v1/photo', photoModule(express.Router))
    
    /*  this._app.use('/api/v1/song', songModule(express.Router))
     this._app.use('/api/v1/artist', artistModule(express.Router))

@@ -8,6 +8,19 @@ const userSchema = new mongoose.Schema({
   _password: { type: String, required: true }
 
 })
+
+const photoSchema = new mongoose.Schema({
+  _name: { type: String, required: true },
+  _uri: { type: String, required: true },
+  _description: { type: String, required: true }
+
+})
+
+const albumSchema = new mongoose.Schema({
+  _name: { type: String, required: true },
+  _description: { type: String, required: true }
+})
+
 /*
 const roleSchema = new mongoose.Schema({
   _name: { type: String, required: true },
@@ -53,6 +66,8 @@ const playlistsongSchema = new mongoose.Schema({
 })*/
 
 const userModel = mongoose.model('User', userSchema)
+const photoModel = mongoose.model('Photo',photoSchema)
+const albumModel = mongoose.model('Album',albumSchema)
 /*const roleModel = mongoose.model('Role', roleSchema)
 const accountModel = mongoose.model('Account', accountSchema)
 const genderModel = mongoose.model('Gender', genderSchema)
@@ -62,7 +77,9 @@ const playlistModel = mongoose.model('Playlist', playlistSchema)
 const playlistsongModel = mongoose.model('Plalist_Song', playlistsongSchema)*/
 
 export const models = {
-  user: userModel
+  user: userModel,
+  photo: photoModel,
+  album: albumModel
   /*role: roleModel,
   account: accountModel,
   gender: genderModel,

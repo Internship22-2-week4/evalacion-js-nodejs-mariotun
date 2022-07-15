@@ -1,4 +1,4 @@
-class Photo {
+export class Photo {
     constructor (photo) {
       // this._id = null
       this._name = photo.name
@@ -7,4 +7,4 @@ class Photo {
     }
   }
   
-  export default Photo
+  //export default Photo
