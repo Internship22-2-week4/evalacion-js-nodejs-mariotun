@@ -7,8 +7,8 @@ export const helpers = {
     return bcrypt.hashSync(password, 10)
   },
   comparePassword: (password, hashPassword) => {
-    console.log('>>>>>>>>>>>>>>>>>>>>>>> ', password, ' <<>> ', hashPassword)
-    return bcrypt.compare('mario123', '$2b$10$tvWHnX7I6kelmUtJahE6HuX5VyGlcId.PtkN8jagjH2LRYoc4KniW')
+    //console.log('>>>>>>>>>>>>>>>>>>>>>>> ', password, ' <<>> ', hashPassword)
+    return bcrypt.compare(password, hashPassword)
     /* bcrypt.compare(password, hashPassword).then(function (result) {
       return result
     }) */

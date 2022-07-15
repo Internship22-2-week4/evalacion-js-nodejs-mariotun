@@ -14,8 +14,8 @@ export const validateCreteUser = [
     .withMessage('Please enter a valid email'),
   check('password')
     .exists()
-    .isLength({ min: 6 })
-    .withMessage('Password should be atleast 6 characters'),
+    .isLength({ min: 8 })
+    .withMessage('Password should be atleast 8 characters'),
   (req, res, next) => {
     try {
       validationResult(req).throw()
